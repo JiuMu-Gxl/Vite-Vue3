@@ -2,14 +2,13 @@ import { defineConfig, loadEnv } from 'vite';
 import { resolve } from 'path';
 import vue from '@vitejs/plugin-vue';
 
-
 function pathResolve(dir) {
   console.log(process.cwd(), dir, resolve(process.cwd(), '.', dir));
   return resolve(process.cwd(), '.', dir);
 }
 
 // https://vitejs.dev/config/
-export default defineConfig(({commend, mode}) => {
+export default defineConfig(({ commend, mode }) => {
   // root 默认：process.cwd(项目根目录
   const root = process.cwd();
   // 获取环境变量
@@ -32,14 +31,14 @@ export default defineConfig(({commend, mode}) => {
         // /@/xxxx => src/xxxx
         {
           find: /\/@\//,
-          replacement: pathResolve('src') + '/'
+          replacement: pathResolve('src') + '/',
         },
         // /#/xxxx => types/xxxx
         {
           find: /\/#\//,
-          replacement: pathResolve('types') + '/'
-        }
-      ]
+          replacement: pathResolve('types') + '/',
+        },
+      ],
     },
     // 调整控制台输出的级别 info|warn|error|silent 默认：info
     logLevel: 'info',
@@ -48,7 +47,7 @@ export default defineConfig(({commend, mode}) => {
       // 指定服务器监听哪个IP true/0.0.0.0：监听所有本地IP(包括局域网和公网地址) 默认：127.0.0.1
       host: true,
       // 指定开发服务器端口 若端口被占用则自动尝试下一个端口
-      port: VITE_PORT,
+      port: env.VITE_PORT,
       // 设为 true 时 若端口被占用则会直接退出 不会尝试下一个端口
       strictPort: true,
       // 启用TLS + HTTP/2 server.proxy代理选项被使用时 将会仅适用TLS
@@ -57,6 +56,6 @@ export default defineConfig(({commend, mode}) => {
       open: true,
       // 设置是否跨域 默认允许任何源 传递一个CorsOptions对象可调整跨域 设为false则禁用
       cors: true,
-    }
-  }
-})
+    },
+  };
+});
