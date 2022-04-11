@@ -51,7 +51,7 @@ export default defineConfig(({ commend, mode }) => {
       // 设为 true 时 若端口被占用则会直接退出 不会尝试下一个端口
       strictPort: true,
       // 启用TLS + HTTP/2 server.proxy代理选项被使用时 将会仅适用TLS
-      https: true,
+      https: false,
       // 设为 true 时启动时在浏览器打开页面 若为 字符串 时 则会别用做URL的路径
       open: true,
       // 设置是否跨域 默认允许任何源 传递一个CorsOptions对象可调整跨域 设为false则禁用
