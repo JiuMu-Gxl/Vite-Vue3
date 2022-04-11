@@ -56,6 +56,8 @@ export default defineConfig(({ commend, mode }) => {
       open: true,
       // 设置是否跨域 默认允许任何源 传递一个CorsOptions对象可调整跨域 设为false则禁用
       cors: true,
+      // 用于定义开发调试阶段生成资产的 origin
+      // origin: 'http://127.0.0.1:8080/'
     },
   };
 });
